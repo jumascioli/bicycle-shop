@@ -28,9 +28,22 @@ export default class ProductsController {
   }
 
   setListeners() {
+    setListener('#product-list', 'click', this.handleAddProduct.bind(this));
     setListener('#search-field', 'input', this.handleSearchFilter.bind(this));
     setListener('#category-field', 'change', this.handleCategoryFilter.bind(this));
     setListener('#sort-field', 'change', this.handleSort.bind(this));
+  }
+
+  handleAddProduct({ target }) {
+    const productId = target.getAttribute('data-product-id');
+
+    if (productId) {
+      document.dispatchEvent(new CustomEvent('cart:add', {
+        detail: {
+          productId,
+        }
+      }));
+    }
   }
 
   handleSearchFilter(event) {

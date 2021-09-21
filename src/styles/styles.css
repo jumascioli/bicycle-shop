@@ -93,11 +93,6 @@ body {
   text-transform: uppercase;
 }
 
-.header__cart {
-  width: 4.6rem;
-  height: 3rem;
-}
-
 .filters {
   display: grid;
   grid-template-columns: 40% 1fr 1fr;
@@ -179,4 +174,93 @@ body {
 
 .button:hover, .button:focus {
   opacity: 0.7;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  width: 5rem;
+}
+
+.cart__button {
+  background-color: transparent;
+  background-image: url("../assets/images/cart.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: none;
+  color: transparent;
+  height: 4.6rem;
+  width: 3rem;
+  opacity: 1;
+  outline: none;
+  position: relative;
+  transition: opacity 100ms ease-in;
+}
+
+.cart__button--has-products::before {
+  background-color: #b2afa0;
+  border-radius: 50%;
+  color: #fff;
+  content: attr(data-cart-amount);
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+  line-height: 1;
+  justify-content: center;
+  height: 1.6rem;
+  width: 1.6rem;
+  position: absolute;
+  top: -0.75rem;
+  right: -1.125rem;
+}
+
+.cart__button:focus,
+.cart__button:hover {
+  opacity: 0.7;
+}
+
+.cart__button::selection {
+  color: transparent;
+}
+
+.card-item {
+  border: 0.2rem solid #F9F2F2;
+  border-radius: 1rem;
+}
+
+.card-item__title {
+  font-family: 'Roboto700';
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #827B7B;
+}
+
+.card-item__type {
+  font-family: 'Roboto700';
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  color: #827B7B;
+  text-transform: uppercase;
+}
+
+.card-item__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+  gap: 1rem;
+}
+
+.card-item__name {
+  font-family: 'Roboto';
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  color: #827B7B;
+}
+
+.card-item__button {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
 }
